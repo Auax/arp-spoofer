@@ -4,7 +4,7 @@ By Auax
 --- 
 # Run:
 Run the application with the following command:
-- `python3 spoof -t <target_ip_address> -lh <host_ip_address>`
+- `python3 spoof.py -t <target_ip_address> -lh <host_ip_address>`
 
 If the argument `-lh` is not defined. It will be automatically assigned to `192.168.1.1`.
 

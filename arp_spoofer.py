@@ -1,5 +1,3 @@
-import pywintypes
-import win32serviceutil
 from scapy.all import Ether, ARP, srp, send, send
 import os
 import sys
@@ -32,6 +30,9 @@ class ArpSpoofer:
         Enables IP route (IP forward) in Windows
         """
         # Enable Remote Access Service
+        import pywintypes
+        import win32serviceutil
+
         try:
             win32serviceutil.StartService("RemoteAccess")
 
