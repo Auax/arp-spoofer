@@ -20,10 +20,13 @@ class ArpSpoofer:
         file_path = "/proc/sys/net/ipv4/ip_forward"
         with open(file_path) as file:
             if file.read() == 1:
+                file.close()
                 return
 
         with open(file_path, "w") as file:
+            # Write to file
             print(1, file=file)
+            file.close()
 
     def _enable_windows_iproute(self):
         """
@@ -46,6 +49,7 @@ class ArpSpoofer:
         if verbose:
             logger.info("Enabling IP Routing...")
 
+        # Enable IP routing for each system
         self._enable_windows_iproute() if "nt" in os.name else self._enable_linux_iproute
 
         if verbose:
@@ -54,7 +58,7 @@ class ArpSpoofer:
     def get_mac_addr(self, ip: str):
         """ 
         Returns MAC address of any device connected to the network
-        If ip is down, returns None instead.
+        If IP is down, returns None instead.
 
         Args:
             ip ([str]): [The target's IP address]
