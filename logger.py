@@ -32,7 +32,3 @@ class Logger:
     def _save_log(text: str):
         with open("output.log", "w") as file:
             file.write(str(datetime.datetime.now()) + " >>> " + text)
-
-
-L = Logger()
-L.error("asdads")
